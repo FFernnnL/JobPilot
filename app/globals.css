@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 背景色 */
+  --background: #FAFBFC;
+  --background-secondary: #F4F6F8;
+  --background-tertiary: #EBEEF2;
+  
+  /* 主色调 - 深邃靛蓝 */
+  --primary: #5B5FC7;
+  --primary-light: #7B7FD1;
+  --primary-lighter: #E8E9F7;
+  --primary-dark: #4B4FB7;
+  
+  /* 辅助色 */
+  --success: #34A77F;
+  --success-light: #E6F5EF;
+  --warning: #E5A324;
+  --warning-light: #FDF6E6;
+  --danger: #D64D4D;
+  --danger-light: #FCEAEA;
+  
+  /* 文字颜色 */
+  --text-primary: #1A1D26;
+  --text-secondary: #5E6278;
+  --text-tertiary: #9095A6;
+  
+  /* 边框 */
+  --border: #E4E7EC;
+  --border-light: #F0F2F5;
+  
+  /* 卡片 */
+  --card: #FFFFFF;
+  
+  /* 阴影 */
+  --shadow-subtle: 0 1px 2px rgba(26, 29, 38, 0.04);
+  --shadow-card: 0 2px 8px rgba(26, 29, 38, 0.06);
+  --shadow-elevated: 0 8px 24px rgba(26, 29, 38, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  letter-spacing: -0.011em;
+  line-height: 1.5;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* 磨砂玻璃效果 */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 卡片基础样式 */
+.card-base {
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-base:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+/* 卡片悬浮效果 */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* 平滑的按钮效果 */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 500;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(91, 95, 199, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(91, 95, 199, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* 渐变背景 */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, var(--success), #3EBD8E);
+}
+
+.gradient-warning {
+  background: linear-gradient(135deg, var(--warning), #F0B940);
+}
+
+.gradient-danger {
+  background: linear-gradient(135deg, var(--danger), #E06060);
+}
+
+.gradient-neutral {
+  background: linear-gradient(135deg, #5E6278, #4A4D5C);
+}
+
+/* 柔和的光晕效果 */
+.glow-primary {
+  box-shadow: 0 0 24px rgba(91, 95, 199, 0.2);
+}
+
+.glow-success {
+  box-shadow: 0 0 24px rgba(52, 167, 127, 0.2);
+}
+
+/* 输入框聚焦效果 */
+.input-focus {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-focus:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-lighter);
+  outline: none;
+}
+
+/* 文字渐变 */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 动画类 */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--background-secondary) 25%,
+    var(--background) 50%,
+    var(--background-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* 页面过渡动画 */
+@layer utilities {
+  .animate-in {
+    animation: animateIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
